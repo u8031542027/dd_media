@@ -10,4 +10,4 @@ it dowloads the video / playlist and anonymizes it automatically
 
 results are saved into:
 
-$(pwd)/tmp-dd_media-00001
+$(pwd)/tmp-dd_media-00001/
