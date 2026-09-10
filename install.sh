@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# install rename
+# install rene
 apt install rename -y
 
 # create LIB_DIR
@@ -11,6 +11,8 @@ mkdir -p "${LIB_DIR}src/"
 python3 -m venv "${LIB_DIR}src/venv"
 "${LIB_DIR}src/venv/bin/python3" -m pip install yt-dlp
 "${LIB_DIR}src/venv/bin/python3" -m pip install deface
+"${LIB_DIR}src/venv/bin/python3" -m pip install onnxruntime-gpu
+"${LIB_DIR}src/venv/bin/python3" -m pip install onnx
 
 # install increment-suffix 
 cp -v ./src/increment-suffix "${LIB_DIR}src/"

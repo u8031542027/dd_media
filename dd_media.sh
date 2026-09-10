@@ -4,13 +4,13 @@
 
 if [ "${1}" = "" ] || [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
 
-    echo "Usage: dd_media [yt-dlp arguments]" 
+    echo "Usage: dd_media [media_link]" 
     echo " "
     echo "download and deface media"
     echo " "
     echo "options:"
     echo "  -h, help          show this help message and exit"
-    echo "  media_link        link to any video"
+    echo "  media_link        link to any video or playlist to download and deface"
     
     exit 0
 fi
