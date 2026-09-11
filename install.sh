@@ -4,7 +4,7 @@
 apt install rename -y
 
 # create LIB_DIR
-LIB_DIR=/usr/lib/dd_media/
+export LIB_DIR=/usr/lib/dd_media/
 mkdir -p "${LIB_DIR}src/"
 
 # install yt-dlp and deface
@@ -15,10 +15,13 @@ python3 -m venv "${LIB_DIR}src/venv"
 "${LIB_DIR}src/venv/bin/python3" -m pip install onnx
 
 # install increment-suffix 
-cp -v ./src/increment-suffix "${LIB_DIR}src/"
+cp -v ./src/increment-suffix.sh "${LIB_DIR}src/increment-suffix.sh"
+
+ln -fsv "${LIB_DIR}src/increment-suffix.sh" /usr/local/bin/increment-suffix
 
 # install main binary
 cp -v ./dd_media.sh /usr/bin/dd_media
 chmod +x /usr/bin/dd_media
 
 exit 0
+

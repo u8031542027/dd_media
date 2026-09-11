@@ -15,20 +15,19 @@ if [ "${1}" = "" ] || [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
     exit 0
 fi
 
-# where you lounch it from - it will have pwd as your current lounch directory
 cd $(pwd)/
 echo "changed dir into $(pwd)/"
-# added quotes here
-ix=$(increment-suffix "dd_media")
+ix=$(increment-suffix tmp-dd_media-)
+echo "ix = ${ix}"
 WORK_DIR="./tmp-dd_media-${ix}/"
 mkdir "${WORK_DIR}"
 cd "${WORK_DIR}"
 echo "changed dir into ${WORK_DIR}"
-/usr/lib/src/venv/bin/python3 /usr/lib/src/venv/bin/yt-dlp $@ 2>&1 | tee /tmp/dd_media_yt-dlp-output.txt
+/usr/lib/dd_media/src/venv/bin/python3 /usr/lib/dd_media/src/venv/bin/yt-dlp $@ 2>&1 | tee /tmp/dd_media_yt-dlp-output.txt
 echo "\n"
 rename "s/ /_/g" *
 for f in $(ls); do  
-    /usr/lib/src/venv/bin/python3 /usr/lib/src/venv/src/venv/bin/deface "${f}"
+    /usr/lib/dd_media/src/venv/bin/python3 /usr/lib/dd_media/src/venv/bin/deface "${f}" --keep-audio
 done
 
 exit 0

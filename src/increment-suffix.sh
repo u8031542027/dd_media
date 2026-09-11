@@ -25,8 +25,10 @@ last_file=$(ls "${DIR}" | grep "${BASE_FILENAME}" | tail -n 1)
 if [ ! "${last_file}" = "" ]; then
     last_file_number="${last_file##*$BASE_FILENAME}"
     last_file_number="${last_file##*_}"
-    amount_of_digits=5
+    # in POSIX shell for decimal count to work - should always remove leading zeros
+    last_file_number="${last_file_number##*0}"
     current_file_number=$((last_file_number+1))
+    amount_of_digits=5
     current_file_number=$(printf "%0${amount_of_digits}d" "${current_file_number}")
 else
     current_file_number="00001"
