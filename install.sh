@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# install rene
+# install requirements
 apt install rename -y
+apt install ffmpeg -y
 
 # create LIB_DIR
 export LIB_DIR=/usr/lib/dd_media/
