@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# GET SCRIPT ABS DIR
+SCRIPT_REL_PATH="${0}"
+SCRIPT_REL_DIR=${SCRIPT_REL_PATH%/*}/
+cd "${SCRIPT_REL_DIR}"
+SCRIPT_ABS_DIR=$(pwd)/
+
 # install requirements
 apt install rename -y
 apt install ffmpeg -y
