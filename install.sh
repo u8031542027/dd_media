@@ -1,5 +1,12 @@
 #!/bin/sh
 
+
+if [ ! $(whoami) = "root" ]; then
+    echo "RUN SCRIPT WITH SUDO."
+    exit 0
+fi
+
+
 # GET SCRIPT ABS DIR
 export SCRIPT_REL_PATH="${0}"
 export SCRIPT_REL_DIR=${SCRIPT_REL_PATH%/*}/
